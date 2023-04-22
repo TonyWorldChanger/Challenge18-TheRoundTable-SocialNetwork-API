@@ -1,8 +1,9 @@
 const { Schema, model } = require("mongoose");
 const reactionsSchema = require("./Reactions");
 
+
 const thoughtSchema = new Schema(
-    {
+    { // creating parameters for the thoughts section
         thoughtText: {
             type: String,
             required: true,
