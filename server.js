@@ -2,11 +2,9 @@ const express = require("express");
 const db = require("./config/connection");
 const routes = require("./routes");
 
+
 const PORT = process.env.port || 3001;
 const app = express();
-
-const connectionStringURI = `mongodb://127.0.0.1:27017`;
-const client = new MongoClien(connectionStringURI);
 
 
 app.use(express.urlencoded({ extended: true }));
