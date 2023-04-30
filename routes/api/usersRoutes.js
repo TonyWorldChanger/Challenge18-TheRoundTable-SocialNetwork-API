@@ -5,7 +5,7 @@ const {
     getSingleUser,
     createUser,
 
-} = require("../../controllers/UsersController");
+} = require("../../controllers/usersController");
 
 // /api/users
 router.route("/").get(getUsers).post(createUser);
