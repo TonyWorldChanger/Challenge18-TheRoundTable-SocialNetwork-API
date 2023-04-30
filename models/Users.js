@@ -6,7 +6,7 @@ const userSchema = new Schema(
             type: String,
             unique: true,
             required: true,
-            trim: 10
+            trim: true,
         },
         email: {
             type: String,
@@ -20,16 +20,10 @@ const userSchema = new Schema(
                 ref: "Thoughts"
             }
         ],
-        friends: [
-            {
-                type: Schema.Types.ObjectId,
-                ref: "users"
-            }
-        ],
     },
     {
         toJSON: {
-            getters: true,
+            virtuals: true,
         },
     }
 );

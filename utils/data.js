@@ -1,4 +1,4 @@
-const usersName = [
+const username = [
     "Joe",
     "Matt",
     "Tony",
@@ -26,4 +26,4 @@ const thoughts = [
 
 
 
-module.exports = { usersName, email, thoughts };
+module.exports = { username, email, thoughts };

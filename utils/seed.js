@@ -1,6 +1,6 @@
 const connection = require("../config/connection");
 const { Users, Thoughts } = require("../models");
-const { usersName, email, thoughts } = require("./data");
+const { username, email, thoughts } = require("./data");
 
 connection.on("error", (err) => err);
 
@@ -12,33 +12,33 @@ connection.once("open", async () => {
     const users = [];
     const usersThoughts = [];
 
-    for (let i = 0; i < users.length; i++) {
+    for (let i = 0; i < username.length; i++) {
         const usersObject = {
-            usersName: usersName[i],
+            usersname: username[i],
             email: email[i],
         };
             const newUser = await Users.create(usersObject);
             users.push({
                 _id: newUser._id.toString(),
-                usersName: newUser.usersName,
+                username: newUser.username,
             });
     }
 
     for (let i = 0; i < thoughts.length; i++) {
         const thoughtsObject = {
-            usersName: usersName[i],
-            thoughtsText: thoughts[i],
+            username: username[i],
+            thoughtText: thoughts[i],
         };
             const newThought = await Thoughts.create(thoughtsObject);
             usersThoughts.push({
                 _id: newThought._id.toString(),
-                usersName: newThought.usersName,
+                username: newThought.username,
             });
     }
 
     for (let i = 0; i < usersThoughts.length; i++) {
         const userId = users.filter (
-            (user) => user.usersName === usersThoughts[i].usersName
+            (user) => user.username === usersThoughts[i].usersname
         );
         console.log("User Id", userId);
         const updateUser = await Users.findOneAndUpdate(
