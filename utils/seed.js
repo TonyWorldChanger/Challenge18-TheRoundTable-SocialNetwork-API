@@ -14,7 +14,7 @@ connection.once("open", async () => {
 
     for (let i = 0; i < username.length; i++) {
         const usersObject = {
-            usersname: username[i],
+            username: username[i],
             email: email[i],
         };
             const newUser = await Users.create(usersObject);
@@ -29,6 +29,7 @@ connection.once("open", async () => {
             username: username[i],
             thoughtText: thoughts[i],
         };
+        console.log(thoughtsObject);
             const newThought = await Thoughts.create(thoughtsObject);
             usersThoughts.push({
                 _id: newThought._id.toString(),
@@ -38,12 +39,12 @@ connection.once("open", async () => {
 
     for (let i = 0; i < usersThoughts.length; i++) {
         const userId = users.filter (
-            (user) => user.username === usersThoughts[i].usersname
+            (user) => user.username === usersThoughts[i].username
         );
         console.log("User Id", userId);
         const updateUser = await Users.findOneAndUpdate(
             {_id: userId[0]._id },
-            {$push: { thouhgts: usersThoughts[i]._id }},
+            {$push: { thoughts: usersThoughts[i]._id }},
             { new: true}
         );
         console.log(updateUser);

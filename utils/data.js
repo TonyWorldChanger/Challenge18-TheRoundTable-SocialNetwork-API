@@ -4,6 +4,7 @@ const username = [
     "Tony",
     "Paris",
     "Kim",
+    "Bruce Lee",
 ];
 
 const email = [
@@ -12,6 +13,7 @@ const email = [
   "tony@email.com",
   "paris@email.com",
   "kim@email.com",
+  "brucelee@email.com",
 
 ];
 

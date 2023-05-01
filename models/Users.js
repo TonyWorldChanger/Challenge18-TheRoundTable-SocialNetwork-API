@@ -1,5 +1,10 @@
 const { Schema, model } = require("mongoose");
 
+const validateEmail = function(email) {
+    const re = /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/;
+    return re.test(email)
+};
+
 const userSchema = new Schema(
     {
         username: {
@@ -12,6 +17,7 @@ const userSchema = new Schema(
             type: String,
             required: true,
             unique: true, 
+            validate: [validateEmail, "Email Needed"],
             match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/],
         },
         thoughts: [
@@ -25,8 +31,11 @@ const userSchema = new Schema(
         toJSON: {
             virtuals: true,
         },
+        id: false,
     }
 );
+
+
 
 const Users = model("user", userSchema);
 

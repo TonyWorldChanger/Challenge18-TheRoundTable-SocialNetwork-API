@@ -14,7 +14,7 @@ module.exports = {
     },
     getSingleUser(req, res) {
         Users.findOne({_id: req.params.userId })
-            .select("-__V")
+            .select("-__v")
             .then((user) =>
                 !user
                   ? res.status(404).json({ message: "No user with that ID" }) 
