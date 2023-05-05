@@ -32,7 +32,15 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 You will need to use the command line to npm install, npm run seed. Once this is completed you will be able to use npm start to connect to the server. Open Insomnia and begin!!!.
 
 ### ScreenShot of Challenge
-![Challenge18]()
+![Challenge18](MongoDB.PNG)
+![Challenge18](Insomnia.PNG)
+
 
 
 ### Video Link
+https://watch.screencastify.com/v/2QmrfEiSavqjFSCaZFZn
+
+
+## Credit
+Aaron Brown Teacher
+Cameron Verver TA
